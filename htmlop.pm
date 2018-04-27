@@ -227,7 +227,7 @@ sub gettoken {
   my($c,$token,$i);
   
   # Skip whitespace and newlines
-  return '' unless defined(@_) && defined($_[0]);
+  return '' unless @_ && defined($_[0]);
   $_[0] =~ s/^[\r\n\s]*//;
   
   return '' if ($_[0] eq '');
