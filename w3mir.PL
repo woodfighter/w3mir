@@ -651,6 +651,9 @@ sub get_document {
   # Derive a filename from the url, the filename contains no URL-quoting
   my($lf_name) = (url "file:$lf_url")->unix_path;
 
+  # revert to quick fix:
+  $lf_name =~ s/^\///;
+
   # Make all intermediate directories
   &mkdir($lf_name) if $s==0;
 
