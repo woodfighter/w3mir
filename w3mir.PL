@@ -990,7 +990,7 @@ sub get_document {
     &handleerror;
     print STDERR "Was refered from: ",
       join(',',@{$rum_referers{$rum_as_string}}),
-      "\n" if defined(@{$rum_referers{$rum_as_string}});
+      "\n" if @{$rum_referers{$rum_as_string}};
     return ();
   }
 
