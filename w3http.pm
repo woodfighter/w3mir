@@ -556,8 +556,16 @@ sub query {
       $tmpf->basename($tmpfile);
       $tmpf=$tmpf->unix_path;
       
+      if (! -w $tmpf){
+        $tmpf =~ s!^/!!;
+      }
+      
       # Find suitable final filename, one with no URL escapes
       $saveto=(url "file:$saveto")->unix_path;
+
+      if (! -w $saveto){
+        $saveto=~ s!^/!!;
+      }
 
       # If output to stdout then send it directly there rather than
       # using disk unnecesarily.
